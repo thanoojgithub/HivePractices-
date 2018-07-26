@@ -1,5 +1,6 @@
 
 --loading file from google storage(buckets) into hive external table
+-- URL - https://storage.googleapis.com/storeone/notes/hive-27072018-12am.txt
 -----------------------------------------------
 hive> show databases;
 OK
