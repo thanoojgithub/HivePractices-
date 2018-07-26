@@ -1,0 +1,28 @@
+
+--loading file from google storage(buckets) into hive external table
+-----------------------------------------------
+hive> show databases;
+OK
+default
+Time taken: 0.014 seconds, Fetched: 1 row(s)
+hive> create database mydb;
+OK
+Time taken: 0.038 seconds
+hive> use mydb;
+OK
+Time taken: 0.018 seconds
+hive> set hive.execution.engine=spark;
+hive> CREATE EXTERNAL TABLE emp (id INT, name STRING, loc STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LOCATION 'gs://storeone/emp';
+OK
+Time taken: 0.624 seconds
+hive> select * from emp;
+OK
+1       sriram  ayodhya
+2       seetha  midhila
+Time taken: 0.078 seconds, Fetched: 2 row(s)
+hive> select * from emp;
+OK
+1       sriram  ayodhya
+2       seetha  midhila
+Time taken: 0.069 seconds, Fetched: 2 row(s)
+hive> -------------------------------------------
